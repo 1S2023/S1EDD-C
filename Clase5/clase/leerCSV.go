@@ -12,6 +12,8 @@ func LeerArchivo(ruta string) {
 	file, err := os.Open(ruta)
 	if err != nil {
 		fmt.Println("Error al abrir el archivo")
+		fmt.Println(err)
+		defer file.Close()
 		return
 	}
 	defer file.Close()
@@ -42,15 +44,15 @@ func ArchivoJSON(lista *ListaNumero) string {
 	aux := lista.Inicio
 	for aux.siguiente != nil {
 		contenido += "\t\t{\n"
-		contenido += "\t\t\t\"Valor\": " + strconv.Itoa(aux.valor) + ", \n"
-		contenido += "\t\t\t\"Carpeta_Raiz\": \"/\" \n"
+		contenido += "\t\t\t\"Valor\": " + strconv.Itoa(aux.valor) + ",\n"
+		contenido += "\t\t\t\"Carpeta_Raiz\": \"/\"\n"
 		contenido += "\t\t},\n"
 		aux = aux.siguiente
 	}
 	//esto es para el ultimo elemento
 	contenido += "\t\t{\n"
-	contenido += "\t\t\t\"Valor\": " + strconv.Itoa(aux.valor) + ", \n"
-	contenido += "\t\t\t\"Carpeta_Raiz\": \"/\" \n"
+	contenido += "\t\t\t\"Valor\": " + strconv.Itoa(aux.valor) + ",\n"
+	contenido += "\t\t\t\"Carpeta_Raiz\": \"/\"\n"
 	contenido += "\t\t}\n"
 	contenido += "\t]\n"
 	contenido += "}"
