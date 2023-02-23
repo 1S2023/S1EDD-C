@@ -7,20 +7,20 @@ import (
 
 func CrearArchivo() {
 	//Verifica que el archivo existe
-	var _, err = os.Stat("Archivo.json")
+	var _, err = os.Stat("Clase5/Archivo.json")
 	//Crea el archivo si no existe
 	if os.IsNotExist(err) {
-		var file, err = os.Create("Archivo.json")
+		var file, err = os.Create("Clase5/Archivo.json")
 		if err != nil {
 			return
 		}
 		defer file.Close()
 	}
-	fmt.Println("Archivo creado exitosamente", "Archivo.json")
+	fmt.Println("Archivo creado exitosamente", "Clase5/Archivo.json")
 }
 
 func EscribirArchivo(contenido string) {
-	var file, err = os.OpenFile("Archivo.json", os.O_RDWR, 0644)
+	var file, err = os.OpenFile("Clase5/Archivo.json", os.O_RDWR, 0644)
 	if err != nil {
 		return
 	}

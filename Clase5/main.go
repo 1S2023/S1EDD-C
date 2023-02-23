@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Clase5/clase"
+	"S1EDD-C/Clase5/clase"
 	"fmt"
 )
 
